@@ -1,0 +1,42 @@
+<%- include('layouts/main', {
+  title: 'IoT DHT11 Dashboard',
+  body: `
+<section class="grid">
+  <div class="card">
+    <h2>Giá trị hiện tại</h2>
+    <div class="stats">
+      <div class="stat"><span id="temp">--</span><small>°C</small></div>
+      <div class="stat"><span id="hum">--</span><small>%</small></div>
+    </div>
+    <div class="timestamp" id="ts">--</div>
+  </div>
+
+  <div class="card">
+    <h2>Biểu đồ Realtime</h2>
+    <canvas id="chart" height="120"></canvas>
+  </div>
+
+  <div class="card">
+    <h2>Điều khiển thiết bị</h2>
+    <div class="controls">
+      <label><input type="checkbox" id="fan"> Quạt</label>
+      <label><input type="checkbox" id="humidifier"> Phun sương</label>
+      <label><input type="checkbox" id="led"> LED</label>
+      <label><input type="checkbox" id="buzzer"> Buzzer</label>
+      <button id="saveControl">Lưu</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Ngưỡng cảnh báo</h2>
+    <div class="thresholds">
+      <label>Nhiệt độ cao (°C): <input type="number" step="0.1" id="thrTemp"/></label>
+      <label>Độ ẩm thấp (%): <input type="number" step="0.1" id="thrHum"/></label>
+      <button id="saveThreshold">Cập nhật ngưỡng</button>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/public/js/dashboard.js"></script>
+` }) %>
